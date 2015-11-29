@@ -9,6 +9,8 @@ angular.module('Home', ['ngRoute'])
   });
 }])
 
-.controller('HomeCtrl', [function() {
-
+.controller('HomeCtrl', ['$http', '$scope', function ( $http, scope ) {
+    $http.get("http://505.enaveed.com/web/index.php/api/food-items/get").then(function (response) {
+        scope.foodItems = response.data.data;
+    });
 }]);
