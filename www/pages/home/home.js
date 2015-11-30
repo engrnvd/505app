@@ -10,7 +10,8 @@ angular.module('Home', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', ['$http', '$scope', function ( $http, scope ) {
-    scope.message = "initializing...";
+    //localStorage.setItem("msg","testing local storage");
+    scope.message = localStorage.getItem("msg");
     $http.get("http://505.enaveed.com/web/index.php/api/food-items/get").then(function (response) {
         scope.foodItems = response.data.data;
         scope.message = scope.message + "\n data received..";

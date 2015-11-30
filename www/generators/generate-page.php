@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__."/helper.php";
+require_once __DIR__ . "/helper.php";
 class PageGenerator{
     public $name;
     public $dir;
