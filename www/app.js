@@ -3,11 +3,35 @@
 angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
-    'Home'// append more modules here
+    'Home',
+	'Login',
+	'SignUp',
+	'ForgotPassword'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/home'});
+    $routeProvider.
+        when('/sign-up', {
+            controller: 'SignUpCtrl',
+            templateUrl: "pages/sign-up/sign-up.html"
+        }).
+        when('/forgot-password', {
+            controller: 'ForgotPasswordCtrl',
+            templateUrl: 'pages/forgot-password/forgot-password.html'
+        }).
+		when('/login', {
+            controller: 'LoginCtrl',
+            templateUrl: 'pages/login/login.html'
+        }).
+		when('/home', {
+            controller: 'HomeCtrl',
+            templateUrl: 'pages/home/home.html'
+        }).
+		// append more pages here
+        otherwise({redirectTo: '/login'});
 }]);
 
 // @codekit-append "pages/home/home.js"
+// @codekit-append "pages/login/login.js"
+// @codekit-append "pages/sign-up/sign-up.js"
+// @codekit-append "pages/forgot-password/forgot-password.js"
 // append more files here

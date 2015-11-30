@@ -1,0 +1,74 @@
+@primary-color: #0078D7;
+@off-white: #ddd;
+
+@font-face {
+  font-family: 'nvd';
+  src: url('../fonts/nvd-ui-light.ttf')  format('truetype'); /* Safari, Android, iOS */
+}
+
+body{
+  font-family: nvd, Calibri, sans-serif;
+  background: @primary-color;
+  color: #fff;
+}
+
+.container{
+  width: 90%;
+  margin: 0 auto;
+}
+.row{
+  margin-bottom: 1em;
+}
+
+h1,h2,h3,h4{
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+button:hover{
+  color: @primary-color;
+  background-color: #fff;
+}
+
+button{
+  color: #fff;
+  background-color: @primary-color;
+  border: 1px solid #fff;
+  border-radius: 0;
+  width: 100%;
+}
+
+a{
+  color: #fff;
+}
+
+a:hover{
+  color: #fff;
+}
+
+input, select, input:focus {
+  margin: 0;
+  //text-align: center;
+  border: none;
+  border-bottom: 1px solid #fff;
+  background-color: transparent;
+  width: 100%;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: @off-white;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: @off-white;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: @off-white;
+}
+
+:-ms-input-placeholder {
+  color: @off-white;
+}

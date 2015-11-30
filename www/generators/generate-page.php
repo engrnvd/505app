@@ -26,6 +26,25 @@ class PageGenerator{
         $this->insertModuleDependency();
         // insert in app.js, codekit declaration
         $this->insertCodeKitDeclaration();
+        // insert in app.js, codekit declaration
+        $this->insertRouteDeclaration();
+    }
+
+    private function insertRouteDeclaration()
+    {
+        $content = file_get_contents($this->appJsFilePath);
+        pr($content,"app.js before");
+        $moduleContent = "when('/".$this->name."', {
+            controller: '".$this->moduleName."Ctrl',
+            templateUrl: 'pages/".$this->name."/".$this->name.".html'
+        }).";
+        echo "Route to append: $moduleContent<br>";
+        echo "pos: ".strpos($content,$moduleContent)."<br>";
+        if( strpos($content,$moduleContent) === false ) {
+            $placeHolder = "// append more pages here";
+            $content = str_replace($placeHolder, $moduleContent."\n\t\t".$placeHolder, $content);
+            file_put_contents($this->appJsFilePath, $content);
+        }
     }
 
     private function insertModuleDependency()
