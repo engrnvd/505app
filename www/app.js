@@ -3,6 +3,7 @@
 angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
+    'CustomDirectives',
     'Home',
 	'Login',
 	'SignUp',
@@ -30,6 +31,8 @@ config(['$routeProvider', function($routeProvider) {
         otherwise({redirectTo: '/login'});
 }]);
 
+// @codekit-append "js/custom-directives.js"
+// @codekit-append "js/developer.js"
 // @codekit-append "pages/home/home.js"
 // @codekit-append "pages/login/login.js"
 // @codekit-append "pages/sign-up/sign-up.js"

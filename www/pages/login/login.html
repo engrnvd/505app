@@ -1,24 +1,32 @@
-<div id="login" class="container">
+<div id="login" class="user-page container" center-v v-font vh="3">
 
-    <h1>Login</h1>
+    <div id="row logo-container">
+        <img id="logo" class="img-responsive" src="images/logo.png" alt="Logo"/>
+    </div>
+
+    <!--<h2 v-font vh="6" id="title">Please Login</h2>-->
 
     <div class="row input-row">
-        <div class="col-xs-2"><i class="fa fa-user"></i></div>
-        <div class="col-xs-10"><input type="text" placeholder="Username"/></div>
+        <div class="col-xs-1"><i class="fa fa-user"></i></div>
+        <div class="col-xs-11"><input type="text" placeholder="Username"/></div>
     </div>
 
     <div class="row input-row">
-        <div class="col-xs-2"><i class="fa fa-lock"></i></div>
-        <div class="col-xs-10"><input type="text" placeholder="Password"/></div>
+        <div class="col-xs-1"><i class="fa fa-lock"></i></div>
+        <div class="col-xs-11"><input type="text" placeholder="Password"/></div>
     </div>
 
-    <p class="fp-row text-right"><a href="#/forgot-password">Forgot Password?</a></p>
+    <div class="row fp-row text-right">
+        <div class="col-xs-12"><a href="#/forgot-password">Forgot Password?</a></div>
+    </div>
 
-    <p class="row input-row"><button class="button">Sign In</button></p>
+    <div class="row input-row">
+        <div class="col-xs-12"><button class="button" v-font vh="4">Sign In</button></div>
+    </div>
 
     <div class="row text-center sign-up-link">
         <p>Don't have an account?</p>
-        <h4><a href="#/sign-up">Sign Up</a></h4>
+        <h4 v-font vh="4"><a href="#/sign-up">Sign Up</a></h4>
     </div>
 
 </div>
