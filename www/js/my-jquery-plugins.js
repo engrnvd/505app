@@ -1,6 +1,39 @@
-/**
- * Created by Engr. Naveed on 15-Nov-15.
- */
+/*
+ * $("element").viewPortWidth(widthInPercentageOfViewPort):
+ * */
+(function($) {
+    $.fn.viewPortWidth = function(width) {
+        var element = $(this);
+        var newWidth =  $(window).width() * width / 100;
+        element.css({ width: newWidth+"px" });
+        $(window).resize( function() {
+            var newWidth =  $(window).width() * width / 100;
+            element.css({ width: newWidth+"px" });
+        });
+        return this;
+    };
+}(jQuery));
+/*
+ * $("element").viewPortHeight(heightInPercentageOfViewPort):
+ * */
+(function ( $ ) {
+    $.fn.viewPortHeight = function(height) {
+        var element = $(this);
+        var newHeight =  $(window).height() * height / 100;
+        element.css({ height: newHeight+"px" });
+        $(window).resize( function() {
+            var newHeight =  $(window).height() * height / 100;
+            element.css({ height: newHeight+"px" });
+        });
+        return this;
+    };
+}( jQuery ));
+/*
+* $("element").showLoader:
+* shows the loader inside the element
+* $("element").hideLoader:
+* hides the loader
+* */
 (function ( $ ) {
     var loaderMarkup = '<span class="loader"><i class="fa fa-cog fa-spin spinner"></i></span>';
     $.fn.showLoader = function() {
@@ -69,7 +102,11 @@
     };
 
 }( jQuery ));
-
+/*
+ * $("element").makeBackdrop():
+ * makes the element full width and height as the view-port
+ * and adds a semitransparent background
+ * */
 (function ( $ ) {
     $.fn.makeBackdrop = function() {
         $(this).css({
@@ -82,9 +119,12 @@
         });
         return this;
     };
-
 }( jQuery ));
 
+/*
+ * $("element").viewPortCenter():
+ * positions the element to the center of the screen
+ * */
 (function ( $ ) {
     $.fn.viewPortCenter = function() {
         var elemHeight = $(this).height(),
@@ -103,7 +143,12 @@
         return this;
     };
 }( jQuery ));
-
+/*
+ * $.showLoader:
+ * shows the loader on the whole screen
+ * $.hideLoader:
+ * hides the loader
+ * */
 (function($){
     $.showLoader = function () {
         var markup = '<span id="loader-wrapper"><i class="fa fa-cog fa-spin" id="spinner"></i></span>';
@@ -137,7 +182,12 @@
     };
 
 })(jQuery);
-
+/*
+ * $.showMessage:
+ * shows an animated, dismiss-able message on the center of the screen
+ * $.hideMessage:
+ * hides the message
+ * */
 (function($){
     $.showMessage = function (msg,type) {
         type = type || "info";

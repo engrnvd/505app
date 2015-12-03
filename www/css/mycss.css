@@ -2,6 +2,22 @@
   font-family: 'nvd';
   src: url('../fonts/nvd-ui-light.ttf') format('truetype');
 }
+table {
+  width: 100%;
+}
+table th,
+table td {
+  text-align: center;
+}
+table thead tr {
+  border-bottom: 2px solid #ffffee;
+}
+table tbody tr {
+  border-bottom: 1px solid #ffffee;
+}
+.linear-layout > div {
+  float: left;
+}
 body {
   font-family: nvd, Calibri, sans-serif;
   background: #0078d7;
@@ -285,6 +301,37 @@ textarea {
 }
 .w100 {
   width: 100%;
+}
+#home .pages-container {
+  margin-top: 15%;
+}
+#home .menu-page {
+  background-color: #003f71;
+  width: 100%;
+  padding: 1.5em 1em;
+  margin-bottom: 1.5em;
+  text-align: center;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+}
+#home .menu-page:hover {
+  background-color: #00233e;
+}
+#navbar {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: #003f71;
+}
+#navbar #logo {
+  margin-top: 17%;
+}
+#navbar .menu-button {
+  padding-left: 2%;
+}
+.page-with-nav {
+  margin-top: 15%;
 }
 .user-page #logo {
   height: 6em;

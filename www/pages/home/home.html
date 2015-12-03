@@ -1,34 +1,26 @@
-<div id="home" class="container" center-v v-font vh="3">
+<navbar></navbar>
+<div id="home" class="container page-with-nav" v-font vh="2.5">
 
-    <div id="row logo-container">
-        <img id="logo" class="img-responsive" src="images/logo.png" alt="Logo"/>
+    <div id="menu-today">
+        <h2 v-font vh="4" id="title">Today's Menu</h2>
+        <table equally-spaced>
+            <thead><tr><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead>
+            <tbody><tr>
+                <td>{{menuToday.breakfast}}</td>
+                <td>{{menuToday.lunch}}</td>
+                <td>{{menuToday.dinner}}</td>
+            </tr></tbody>
+        </table>
     </div>
 
-    <h2 v-font vh="6" id="title">Please Login</h2>
-
-    <div class="row input-row">
-        <div class="col-xs-1"><i class="fa fa-user"></i></div>
-        <div class="col-xs-11"><input type="text" placeholder="Username"/></div>
-    </div>
-
-    <div class="row input-row">
-        <div class="col-xs-1"><i class="fa fa-lock"></i></div>
-        <div class="col-xs-11"><input type="text" placeholder="Password"/></div>
-    </div>
-
-    <div class="row fp-row text-right">
-        <div class="col-xs-12"><a href="#/forgot-password">Forgot Password?</a></div>
-    </div>
-
-    <div class="row input-row">
-        <div class="col-xs-12">
-            <button class="button" v-font vh="4" ng-click="login()">Sign In</button>
+    <div class="row pages-container">
+        <div class="col-xs-6" ng-repeat="page in pages">
+            <a class="menu-page" href="#/{{page.url}}">
+                <i class="fa fa-{{page.icon}}" v-font vh="5"></i>
+                <br/>
+                {{page.url.replace('-',' ').capitalize()}}
+            </a>
         </div>
-    </div>
-
-    <div class="row text-center sign-up-link">
-        <p>Don't have an account?</p>
-        <h4 v-font vh="4"><a href="#/sign-up">Sign Up</a></h4>
     </div>
 
 </div>

@@ -10,8 +10,10 @@ angular.module('Home', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', ['$http', '$scope', function ( $http, scope ) {
-        $.showMessage("yeeehaaa");
-    //$http.get("http://505.enaveed.com/web/index.php/api/food-items/get").then(function (response) {
-    //    scope.foodItems = response.data.data;
-    //});
+    $("#menu-today").showLoader();
+    $http.get(SiteGlobals.apiUrl+"menu/menu-today").then(function (response) {
+        scope.menuToday = response.data.data;
+        $("#menu-today").hideLoader();
+    });
+    scope.pages = SiteGlobals.pages;
 }]);

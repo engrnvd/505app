@@ -1,9 +1,31 @@
 @primary-color: #0078D7;
 @off-white: #ddd;
+@table-border-color: #ffe;
 
 @font-face {
   font-family: 'nvd';
   src: url('../fonts/nvd-ui-light.ttf')  format('truetype');
+}
+
+table{
+  width: 100%;
+  th,td{
+    text-align: center;
+  }
+  thead{
+    tr{
+      border-bottom: 2px solid @table-border-color;
+    }
+  }
+  tbody{
+    tr{
+      border-bottom: 1px solid @table-border-color;
+    }
+  }
+}
+
+.linear-layout>div{
+  float: left;
 }
 
 body {
