@@ -2,7 +2,7 @@
  * Created by Engr. Naveed on 15-Nov-15.
  */
 (function ( $ ) {
-    var loaderMarkup = '<span class="loader"><i class="fa fa-refresh fa-spin spinner"></i></span>';
+    var loaderMarkup = '<span class="loader"><i class="fa fa-cog fa-spin spinner"></i></span>';
     $.fn.showLoader = function() {
         return this.each(function () {
             // show loader
@@ -12,12 +12,18 @@
             var elem = $(this),
                 loaderWrapper = elem.children(".loader"),
                 loader = loaderWrapper.children(".spinner"),
-                height = elem.outerHeight();
+                height = elem.height();
+            //console.log("elemHeight: "+height);
             // height should not be too large
             var winHeight = $(window).height();
             if( height > winHeight ) height = winHeight;
-            var marginTop = Math.round(0.1*height),
+            //console.log("winHeight: "+winHeight);
+            //console.log("elemHeight: "+height);
+            //console.log("loaderWrapper.height: "+loaderWrapper.height());
+            var marginTop = 0.1*height,
                 loaderSize = height - (marginTop * 2);
+            //console.log("marginTop: "+marginTop);
+            //console.log("loaderSize: "+loaderSize);
 
             // adjust css
             elem.css({
@@ -35,9 +41,15 @@
                 zIndex: 9999
             });
             loader.css({
-                lineHeight: 1,
-                fontSize: loaderSize+"px",
-                marginTop: marginTop+"px"
+                //lineHeight: 0.9,
+                fontSize: loaderSize+"px"
+            });
+            //console.log("loaderWrapper.outerHeight: "+loaderWrapper.outerHeight());
+            //console.log("loader.height(): "+loader.height());
+            loader.css({
+                position: "absolute",
+                top: ((loaderWrapper.outerHeight() - loader.height())/2)+"px",
+                left: ((loaderWrapper.width() - 1.1*loader.width())/2)+"px"
             });
 
             // disable event propagation when loader is present
@@ -58,47 +70,118 @@
 
 }( jQuery ));
 
-jQuery.showMessage = function (msg,type) {
-    type = type || "info";
-    var markup =
-        "<div id='message-wrapper'>" +
-        "<div id='message' " +
-        "class='alert alert-"+type+"'>" +
-        msg+"<i class='fa fa-remove'></i>" +
-        "</div>" +
-        "</div>";
-
-    $("body").prepend(markup);
-
-    var wrapper = $("#message-wrapper");
-    var msgDiv = $("#message");
-    wrapper.css({
-        position: 'fixed',
-        zIndex: 9999,
-        width: "100%",
-        height: "100%",
-        backgroundColor: "rgba(0,0,0,0.5)"
-    });
-    msgDiv.css({
-        position: 'absolute',
-        width: '60%',
-        left: '20%',
-        top: '-10%',
-        cursor: "pointer"
-    });
-
-    msgDiv.find(".fa").css({
-        position: 'absolute',
-        right: '1em',
-        top: '1em'
-    });
-
-    msgDiv.animate({
-        top: '30%'
-    }, 500, 'easeOutExpo', function() {
-        msgDiv.click(function () {
-            wrapper.remove();
+(function ( $ ) {
+    $.fn.makeBackdrop = function() {
+        $(this).css({
+            position: 'fixed',
+            zIndex: 9999,
+            top: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.5)"
         });
-    });
+        return this;
+    };
 
-};
+}( jQuery ));
+
+(function ( $ ) {
+    $.fn.viewPortCenter = function() {
+        var elemHeight = $(this).height(),
+            elemWidth = $(this).width(),
+            parent = $(window),
+            parentHeight = parent.height(),
+            parentWidth = parent.width(),
+            top = (parentHeight - elemHeight) / 2,
+            left = (parentWidth - elemWidth) / 2;
+        $(this).css({
+            position: 'fixed',
+            zIndex: 9999,
+            top: top+"px",
+            left: left+"px"
+        });
+        return this;
+    };
+}( jQuery ));
+
+(function($){
+    $.showLoader = function () {
+        var markup = '<span id="loader-wrapper"><i class="fa fa-cog fa-spin" id="spinner"></i></span>';
+        $("body").prepend(markup);
+
+        var wrapper = $("#loader-wrapper");
+        var loader = $("#spinner");
+
+        function resizeLoader(){
+            var parent = $(window),
+                parentHeight = parent.height(),
+                parentWidth = parent.width(),
+                maxSize = parentHeight > parentWidth ? parentWidth : parentHeight,
+                fontSize = maxSize * 0.6;
+            loader.css({ fontSize: fontSize+"px" });
+        }
+
+        wrapper.makeBackdrop();
+        resizeLoader();
+        loader.viewPortCenter();
+        $(window).resize( function() {
+            wrapper.makeBackdrop();
+            resizeLoader();
+            loader.viewPortCenter();
+        });
+    };
+
+    $.hideLoader = function() {
+        $("#loader-wrapper").remove();
+        return this;
+    };
+
+})(jQuery);
+(function($){
+    $.showMessage = function (msg,type) {
+        type = type || "info";
+        var markup =
+            "<div id='message-wrapper'>" +
+            "<div id='message' " +
+            "class='alert alert-"+type+"'>" +
+            msg+"<i class='fa fa-remove'></i>" +
+            "</div>" +
+            "</div>";
+
+        $("body").prepend(markup);
+
+        var wrapper = $("#message-wrapper");
+        var msgDiv = $("#message");
+        wrapper.makeBackdrop();
+        msgDiv.css({
+            position: 'absolute',
+            margin: 0,
+            width: '80%',
+            left: '10%',
+            top: '-10%',
+            cursor: "pointer"
+        });
+
+        msgDiv.find(".fa").css({
+            position: 'absolute',
+            right: '0.5em',
+            top: '0.5em'
+        });
+
+        var elemHeight = msgDiv.height(),
+            parent = $(window),
+            parentHeight = parent.height(),
+            top = (parentHeight - elemHeight) / 2;
+        msgDiv.animate({
+            top: top+'px'
+        }, 500, 'easeOutCirc', function() {
+            msgDiv.click(function () {
+                wrapper.remove();
+            });
+        });
+        $(window).resize( function() {
+            wrapper.makeBackdrop();
+            msgDiv.viewPortCenter();
+        });
+    };
+})(jQuery);

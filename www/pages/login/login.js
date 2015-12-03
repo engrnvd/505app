@@ -9,6 +9,8 @@ angular.module('Login', ['ngRoute'])
   });
 }])
 
-.controller('LoginCtrl', ['$scope',function(scope) {
-
+.controller('LoginCtrl', ['$scope','$location',function(scope,$location) {
+    scope.login = function () {
+        $location.path("/home");
+    };
 }]);

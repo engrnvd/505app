@@ -18,7 +18,10 @@ angular.module('CustomDirectives', [])
         }
     };
 })
-
+/*
+* View-port font
+* Set the size in vh and vw units in browsers that don't support vh and vw units
+* */
 .directive('vFont', function() {
     return {
         restrict: 'A',
