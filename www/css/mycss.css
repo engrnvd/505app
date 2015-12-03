@@ -315,7 +315,7 @@ textarea {
   display: block;
   text-decoration: none;
 }
-#home .menu-page:hover {
+#home .menu-page:active {
   background-color: #00233e;
 }
 #navbar {
