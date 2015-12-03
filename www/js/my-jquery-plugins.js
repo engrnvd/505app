@@ -137,6 +137,7 @@
     };
 
 })(jQuery);
+
 (function($){
     $.showMessage = function (msg,type) {
         type = type || "info";
