@@ -320,7 +320,7 @@ textarea {
 }
 #navbar {
   position: fixed;
-  top: 0;
+  bottom: 0;
   z-index: 999;
   background-color: #003f71;
 }
@@ -329,9 +329,81 @@ textarea {
 }
 #navbar .menu-button {
   padding-left: 2%;
+  cursor: pointer;
+}
+#side-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+#side-menu .content {
+  background-color: #fff;
+  color: #0078d7;
+  width: 90%;
+  height: 100%;
+  box-shadow: 0 0 500px 0 #222;
+}
+#side-menu .content .banner {
+  height: 20%;
+  position: relative;
+  background-color: #117D10;
+  color: #fff;
+}
+#side-menu .content .banner .profile-pic {
+  width: 20%;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
+#side-menu .content .banner .user-info {
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+#side-menu .content .banner .user-info p {
+  margin: 0;
+}
+#side-menu .content .banner .name {
+  font-weight: bold;
+}
+#side-menu .pages-container {
+  width: 90%;
+  margin-left: 5%;
+}
+#side-menu .backdrop {
+  width: 20%;
+  height: 100%;
+  background-color: #000000;
+}
+#side-menu .menu-page {
+  color: #0078d7;
+  margin-top: 1em;
+  padding-bottom: 1em;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  border-bottom: 1px solid #dddddd;
+}
+#side-menu .menu-page .icon {
+  margin-right: 0.5em;
+}
+#side-menu .menu-page .label {
+  color: #0078d7;
+  font-weight: normal;
+}
+#side-menu .menu-page:active {
+  background-color: #00233e;
 }
 .page-with-nav {
-  margin-top: 15%;
+  margin-top: 3%;
 }
 .user-page #logo {
   height: 6em;
