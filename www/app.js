@@ -7,7 +7,8 @@ angular.module('myApp', [
     'Home',
 	'Login',
 	'SignUp',
-	'ForgotPassword'// append more modules here
+	'ForgotPassword',
+	'SplashScreen'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.
@@ -27,8 +28,12 @@ config(['$routeProvider', function($routeProvider) {
             controller: 'HomeCtrl',
             templateUrl: 'pages/home/home.html'
         }).
+		when('/splash-screen', {
+            controller: 'SplashScreenCtrl',
+            templateUrl: 'pages/splash-screen/splash-screen.html'
+        }).
 		// append more pages here
-        otherwise({redirectTo: '/login'});
+        otherwise({redirectTo: '/splash-screen'});
 }]);
 
 // @codekit-append "js/custom-directives.js"
@@ -37,4 +42,5 @@ config(['$routeProvider', function($routeProvider) {
 // @codekit-append "pages/login/login.js"
 // @codekit-append "pages/sign-up/sign-up.js"
 // @codekit-append "pages/forgot-password/forgot-password.js"
+// @codekit-append "pages/splash-screen/splash-screen.js"
 // append more files here
