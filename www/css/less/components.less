@@ -7,7 +7,7 @@
   src: url('../fonts/nvd-ui-light.ttf')  format('truetype');
 }
 
-table{
+table {
   width: 100%;
   th,td{
     text-align: center;
@@ -61,6 +61,13 @@ button {
   border: 1px solid #fff;
   border-radius: 0;
   width: 100%;
+}
+
+button[disabled], html input[disabled], button[disabled]:hover {
+  cursor: not-allowed;
+  color: #999;
+  border-color: #999;
+  background-color: @primary-color;
 }
 
 a {

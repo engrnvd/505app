@@ -9,6 +9,16 @@ angular.module('SignUp', ['ngRoute'])
   });
 }])
 
-.controller('SignUpCtrl', [function() {
-
+.controller('SignUpCtrl', ['$scope','$http', function(scope,$http) {
+    scope.form = {};
+    scope.requestSignUp = function () {
+        $.showLoader();
+        $http.post(SiteGlobals.apiUrl+"officer-profile/sign-up",scope.form).then(function (response) {
+            var type = response.data.error? "danger":"success";
+            $.showMessage(response.data.data);
+            if(!response.data.error)
+                scope.form = {};
+            $.hideLoader();
+        });
+    };
 }]);

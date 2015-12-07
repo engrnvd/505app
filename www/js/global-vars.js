@@ -1,5 +1,6 @@
 var SiteGlobals = {
-    serverUrl: "http://505.enaveed.com/web/index.php/",
+    //serverUrl: "http://505.enaveed.com/web/index.php/",
+    serverUrl: "http://localhost/505mess/",
     pages: [
         {
             icon: "user",
@@ -28,3 +29,6 @@ var SiteGlobals = {
     ]
 };
 SiteGlobals.apiUrl = SiteGlobals.serverUrl+"api/";
+SiteGlobals.checkLoggedIn = function () {
+    if(!localStorage.getItem("authToken")) window.location.href = "#/login";
+};

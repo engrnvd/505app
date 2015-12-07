@@ -10,6 +10,7 @@ angular.module('Home', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', ['$http', '$scope', function ( $http, scope ) {
+    //SiteGlobals.checkLoggedIn();
     $("#menu-today").showLoader();
     $http.get(SiteGlobals.apiUrl+"menu/menu-today").then(function (response) {
         scope.menuToday = response.data.data;

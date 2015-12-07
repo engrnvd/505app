@@ -28,7 +28,7 @@ config(['$routeProvider', function($routeProvider) {
             templateUrl: 'pages/home/home.html'
         }).
 		// append more pages here
-        otherwise({redirectTo: '/login'});
+        otherwise({redirectTo: '/home'});
 }]);
 
 // @codekit-append "js/custom-directives.js"

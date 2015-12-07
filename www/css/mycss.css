@@ -52,6 +52,14 @@ button {
   border-radius: 0;
   width: 100%;
 }
+button[disabled],
+html input[disabled],
+button[disabled]:hover {
+  cursor: not-allowed;
+  color: #999;
+  border-color: #999;
+  background-color: #0078d7;
+}
 a {
   color: #fff;
 }
@@ -425,4 +433,9 @@ textarea {
 .user-page .sign-up-link p,
 .user-page .sign-up-link h4 {
   margin: 0;
+}
+.ng-touched[class*='ng-invalid'],
+.ng-submitted .ng-invalid {
+  color: #f00 !important;
+  border-color: #f00 !important;
 }
