@@ -15,7 +15,7 @@ angular.module('SignUp', ['ngRoute'])
         $.showLoader();
         $http.post(SiteGlobals.apiUrl+"officer-profile/sign-up",scope.form).then(function (response) {
             var type = response.data.error? "danger":"success";
-            $.showMessage(response.data.data);
+            $.showMessage(response.data.data,type);
             if(!response.data.error)
                 scope.form = {};
             $.hideLoader();
