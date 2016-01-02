@@ -1,6 +1,6 @@
 var SiteGlobals = {
-    //serverUrl: "http://505.enaveed.com/web/index.php/",
-    serverUrl: "http://localhost/505mess/",
+    serverUrl: "http://505.enaveed.com/web/index.php/",
+    //serverUrl: "http://localhost/505mess/",
     pages: [
         {
             icon: "user",
@@ -46,8 +46,6 @@ SiteGlobals.user = function () {
 SiteGlobals.authToken = function () {
     return localStorage.getItem("authToken");
 };
-
-
 
 //SiteGlobals.login = function (res) {
 //

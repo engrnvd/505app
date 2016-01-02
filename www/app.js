@@ -9,12 +9,15 @@ angular.module('myApp', [
 	'Login',
 	'SignUp',
 	'ForgotPassword',
-	'SplashScreen'// append more modules here
+	'SplashScreen',
+	'Logout'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
-
+document.addEventListener("backbutton", function () {
+    alert("back pressed");
+}, false);
 // @codekit-append "js/custom-directives.js"
 // @codekit-append "js/custom-services/Api.js"
 // @codekit-append "js/developer.js"
@@ -23,4 +26,5 @@ config(['$routeProvider', function($routeProvider) {
 // @codekit-append "pages/sign-up/sign-up.js"
 // @codekit-append "pages/forgot-password/forgot-password.js"
 // @codekit-append "pages/splash-screen/splash-screen.js"
+// @codekit-append "pages/logout/logout.js"
 // append more files here
