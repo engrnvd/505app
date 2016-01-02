@@ -14,7 +14,8 @@ angular.module('Api', [])
         var checkAndHandleError = function (response) {
             if (response.data.error) {
                 $.showMessage(response.data.data, 'danger');
-                $location.path("/login");
+                if(response.data.errorType == 'login')
+                    $location.path("/login");
             }
         };
 
