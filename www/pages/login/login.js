@@ -9,16 +9,18 @@ angular.module('Login', ['ngRoute'])
   });
 }])
 
-.controller('LoginCtrl', ['$scope','$location','$http',function(scope,$location,$http) {
-    scope.form = {};
+.controller('LoginCtrl', ['$scope','$location','$http','$rootScope',function(scope,$location,$http,$rootScope) {
+    scope.form = {username:"",password:""};
     scope.login = function () {
         $.showLoader();
         $http.post(SiteGlobals.apiUrl+"officer-profile/login",scope.form).then(function (response) {
             if (!response.data.error) {
+                var res = JSON.parse(response.data.data);
+                localStorage.setItem("authToken", res.authToken);
+                localStorage.setItem("user", JSON.stringify(res.currentUser));
                 $location.path("/home");
             } else {
-                var type = response.data.error? "danger":"success";
-                $.showMessage(response.data.data,type);
+                $.showMessage(response.data.data,"danger");
             }
             $.hideLoader();
         });

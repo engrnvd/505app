@@ -26,8 +26,8 @@ class PageGenerator{
         $this->insertModuleDependency();
         // insert in app.js, codekit declaration
         $this->insertCodeKitDeclaration();
-        // insert in app.js, codekit declaration
-        $this->insertRouteDeclaration();
+        // insert in app.js, route declaration
+        //$this->insertRouteDeclaration(); // no need for this bcz we already added route in the js file
     }
 
     private function insertRouteDeclaration()

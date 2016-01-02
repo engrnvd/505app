@@ -4,6 +4,7 @@ angular.module('myApp', [
     'ngRoute',
     'ngAnimate',
     'CustomDirectives',
+    'Api',
     'Home',
 	'Login',
 	'SignUp',
@@ -11,32 +12,11 @@ angular.module('myApp', [
 	'SplashScreen'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.
-        when('/sign-up', {
-            controller: 'SignUpCtrl',
-            templateUrl: "pages/sign-up/sign-up.html"
-        }).
-        when('/forgot-password', {
-            controller: 'ForgotPasswordCtrl',
-            templateUrl: 'pages/forgot-password/forgot-password.html'
-        }).
-		when('/login', {
-            controller: 'LoginCtrl',
-            templateUrl: 'pages/login/login.html'
-        }).
-		when('/home', {
-            controller: 'HomeCtrl',
-            templateUrl: 'pages/home/home.html'
-        }).
-		when('/splash-screen', {
-            controller: 'SplashScreenCtrl',
-            templateUrl: 'pages/splash-screen/splash-screen.html'
-        }).
-		// append more pages here
-        otherwise({redirectTo: '/splash-screen'});
+    $routeProvider.otherwise({redirectTo: '/home'});
 }]);
 
 // @codekit-append "js/custom-directives.js"
+// @codekit-append "js/custom-services/Api.js"
 // @codekit-append "js/developer.js"
 // @codekit-append "pages/home/home.js"
 // @codekit-append "pages/login/login.js"

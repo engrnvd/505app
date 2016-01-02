@@ -29,6 +29,26 @@ var SiteGlobals = {
     ]
 };
 SiteGlobals.apiUrl = SiteGlobals.serverUrl+"api/";
+
 SiteGlobals.checkLoggedIn = function () {
-    if(!localStorage.getItem("authToken")) window.location.href = "#/login";
+    if( !localStorage.getItem("authToken") || !localStorage.getItem("user") )
+    {
+        $.showMessage("You are not logged in.","danger");
+        window.location.href = "#/login";
+    }
 };
+
+SiteGlobals.user = function () {
+    return JSON.parse(localStorage.getItem("user"));
+};
+
+
+SiteGlobals.authToken = function () {
+    return localStorage.getItem("authToken");
+};
+
+
+
+//SiteGlobals.login = function (res) {
+//
+//};

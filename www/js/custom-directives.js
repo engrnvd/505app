@@ -4,8 +4,9 @@ angular.module('CustomDirectives', [])
     return {
         restrict: 'E',
         templateUrl: 'partials/navbar.html',
-        controller: ['$scope',function (scope) {
+        controller: ['$scope','$rootScope',function (scope) {
             scope.pages = SiteGlobals.pages;
+            scope.user = SiteGlobals.user();
             scope.showSideMenu = function () {
                 var sideMenu = $("#side-menu");
                 sideMenu.css("transform", "translate3d("+sideMenu.width()+"px, 0, 0px)");
