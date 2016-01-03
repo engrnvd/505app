@@ -15,9 +15,15 @@ angular.module('myApp', [
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/home'});
 }]);
-document.addEventListener("backbutton", function () {
-    alert("back pressed");
-}, false);
+
+document.addEventListener("deviceready", onDeviceReady, false);
+function onDeviceReady() {
+    document.addEventListener("backbutton", function () {
+        navigator.app.exitApp();
+        return false;
+    }, false);
+}
+
 // @codekit-append "js/custom-directives.js"
 // @codekit-append "js/custom-services/Api.js"
 // @codekit-append "js/developer.js"
