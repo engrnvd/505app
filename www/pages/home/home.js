@@ -10,7 +10,6 @@ angular.module('Home', ['ngRoute'])
 }])
 
 .controller('HomeCtrl', ['Api', '$scope', function ( Api, scope ) {
-    //SiteGlobals.checkLoggedIn();
     $("#menu-today").showLoader();
         Api.post("menu/menu-today").then(function (response) {
             Api.checkAndHandleError(response);

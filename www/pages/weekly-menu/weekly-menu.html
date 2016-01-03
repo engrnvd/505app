@@ -1,0 +1,17 @@
+<div id="home" class="container page-with-nav" v-font vh="2.5">
+    <div id="menu">
+        <h2 v-font vh="4" id="title">Weekly Menu</h2>
+        <table equally-spaced>
+            <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th></tr></thead>
+            <tbody>
+                <tr ng-repeat="item in menu">
+                    <td>{{item.day}}</td>
+                    <td>{{item.breakfast}}</td>
+                    <td>{{item.lunch}}</td>
+                    <td>{{item.dinner}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<navbar></navbar>
