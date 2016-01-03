@@ -16,11 +16,6 @@ angular.module('BillingDetails', ['ngRoute'])
         year: date.getFullYear(),
         monthsList: Date.monthsList()
     };
-    scope.form = {
-        month: '10',
-        year: 2015,
-        monthsList: Date.monthsList()
-    };
 
     scope.loadRecords = function () {
         $.showLoader();

@@ -1,5 +1,5 @@
 <div id="billing-details" class="container page-with-nav" v-font vh="2.5">
-    <h2 class="title">Billing Details</h2>
+    <h2>Billing Details</h2>
     <form id="month-selector">
         <select ng-model="form.month" class="w33">
             <option ng-repeat="month in form.monthsList" value="{{$index}}">{{month}}</option>
@@ -20,20 +20,6 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="(date,record) in details.records">
-                <td>{{date}}</td>
-                <td>{{record['Lunch Record']}}</td>
-                <td>{{record['Dinner Record']}}</td>
-                <td>{{record['Extra Mess Record']}}</td>
-                <td>{{record['total']}}</td>
-            </tr>
-            <tr ng-repeat="(date,record) in details.records">
-                <td>{{date}}</td>
-                <td>{{record['Lunch Record']}}</td>
-                <td>{{record['Dinner Record']}}</td>
-                <td>{{record['Extra Mess Record']}}</td>
-                <td>{{record['total']}}</td>
-            </tr>
             <tr ng-repeat="(date,record) in details.records">
                 <td>{{date}}</td>
                 <td>{{record['Lunch Record']}}</td>
