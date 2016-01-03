@@ -79,6 +79,9 @@ input:focus {
   width: 100%;
   outline: none;
 }
+option {
+  color: #000;
+}
 textarea {
   overflow: hidden;
   resize: none;
@@ -412,7 +415,7 @@ textarea {
   background-color: #00233e;
 }
 .page-with-nav {
-  margin-top: 3%;
+  height: 70%;
 }
 .user-page #logo {
   height: 6em;
@@ -439,4 +442,20 @@ textarea {
 .ng-submitted .ng-invalid {
   color: #f00 !important;
   border-color: #f00 !important;
+}
+#billing-details .w33 {
+  width: 33.333333333333336%;
+  float: left;
+  display: block;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 1em 0;
+}
+#billing-details select,
+#billing-details input {
+  border-bottom: none;
+}
+#billing-details .table-container {
+  height: 28em;
+  overflow-y: auto;
 }

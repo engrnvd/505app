@@ -11,7 +11,8 @@ angular.module('myApp', [
 	'ForgotPassword',
 	'SplashScreen',
 	'Logout',
-	'WeeklyMenu'// append more modules here
+	'WeeklyMenu',
+	'BillingDetails'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/login'});
@@ -35,4 +36,5 @@ function onDeviceReady() {
 // @codekit-append "pages/splash-screen/splash-screen.js"
 // @codekit-append "pages/logout/logout.js"
 // @codekit-append "pages/weekly-menu/weekly-menu.js"
+// @codekit-append "pages/billing-details/billing-details.js"
 // append more files here

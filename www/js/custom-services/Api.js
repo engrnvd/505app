@@ -15,7 +15,12 @@ angular.module('Api', [])
             if (response.data.error) {
                 $.showMessage(response.data.data, 'danger');
                 if(response.data.errorType == 'login')
+                {
+                    localStorage.removeItem("authToken");
+                    localStorage.removeItem("user");
+                    window.location.reload();
                     $location.path("/login");
+                }
             }
         };
 

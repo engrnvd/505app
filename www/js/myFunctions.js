@@ -135,3 +135,8 @@ Date.prototype.isFutureDate = function () {
     var diff = this - new Date( Date.now() + 5*60*60*1000 );
     return diff > 0;
 };
+
+Date.monthsList = function () {
+    return ['January','February','March','April','May','June',
+        'July','August','September','October','November','December'];
+};
