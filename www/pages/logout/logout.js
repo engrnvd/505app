@@ -19,6 +19,7 @@ angular.module('Logout', ['ngRoute'])
         }else{
             localStorage.removeItem("authToken");
             localStorage.removeItem("user");
+            window.location.reload();
             $location.path("/login");
         }
         $.hideLoader();

@@ -10,6 +10,8 @@ angular.module('Login', ['ngRoute'])
 }])
 
 .controller('LoginCtrl', ['$scope','$location','$http','$rootScope',function(scope,$location,$http,$rootScope) {
+    if( localStorage.getItem("authToken") )
+        window.location.href = "#/home";
     scope.form = {username:"",password:""};
     scope.login = function () {
         $.showLoader();

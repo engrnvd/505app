@@ -13,7 +13,7 @@ angular.module('myApp', [
 	'Logout'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.otherwise({redirectTo: '/home'});
+    $routeProvider.otherwise({redirectTo: '/login'});
 }]);
 
 document.addEventListener("deviceready", onDeviceReady, false);
