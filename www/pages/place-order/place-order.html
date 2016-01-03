@@ -1,0 +1,22 @@
+<div id="place-order" class="page-with-nav container" center-v v-font vh="3">
+
+    <div id="row logo-container">
+        <img id="logo" class="img-responsive main-logo" src="images/logo.png" alt="Logo"/>
+    </div>
+
+    <h2 v-font vh="6" id="title">Place Order</h2>
+
+    <form novalidate name="placeOrderForm" ng-submit="placeOrder()">
+        <div class="row input-row">
+            <div class="col-xs-1"><i class="fa fa-envelope"></i></div>
+            <div class="col-xs-11"><textarea required ng-model="form.message" placeholder="Enter details about the order" rows="4"></textarea></div>
+        </div>
+
+        <div class="row input-row">
+            <div class="col-xs-12"><button type="submit" class="button" v-font vh="4" ng-disabled="!placeOrderForm.$valid">Submit</button></div>
+        </div>
+    </form>
+
+</div>
+
+<navbar></navbar>

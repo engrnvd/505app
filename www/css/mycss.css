@@ -459,3 +459,11 @@ textarea {
   height: 28em;
   overflow-y: auto;
 }
+.main-logo {
+  height: 6em;
+  margin: 0 auto 1em auto;
+  display: block;
+}
+.message-wrapper .message .alert {
+  font-size: 1em;
+}
