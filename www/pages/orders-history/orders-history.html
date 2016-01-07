@@ -1,0 +1,16 @@
+<div id="orders-history" class="container page-with-nav" v-font vh="2.5">
+    <div id="orders">
+        <h2 v-font vh="4" id="title">Your Orders History</h2>
+        <table>
+            <thead><tr><th>Date Time</th><th>Message</th><th>Status</th></tr></thead>
+            <tbody>
+            <tr ng-repeat="item in orders">
+                <td>{{item.created_at}}</td>
+                <td>{{item.message}}</td>
+                <td>{{item.status}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<navbar></navbar>

@@ -12,7 +12,7 @@ var SiteGlobals = {
         },
         {
             icon: "list",
-            url: "your-orders"
+            url: "orders-history"
         },
         {
             icon: "list-alt",

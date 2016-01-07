@@ -13,7 +13,8 @@ angular.module('myApp', [
 	'Logout',
 	'WeeklyMenu',
 	'BillingDetails',
-	'PlaceOrder'// append more modules here
+	'PlaceOrder',
+	'OrdersHistory'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/login'});
@@ -39,4 +40,5 @@ function onDeviceReady() {
 // @codekit-append "pages/weekly-menu/weekly-menu.js"
 // @codekit-append "pages/billing-details/billing-details.js"
 // @codekit-append "pages/place-order/place-order.js"
+// @codekit-append "pages/orders-history/orders-history.js"
 // append more files here
