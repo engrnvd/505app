@@ -14,7 +14,8 @@ angular.module('myApp', [
 	'WeeklyMenu',
 	'BillingDetails',
 	'PlaceOrder',
-	'OrdersHistory'// append more modules here
+	'OrdersHistory',
+	'Profile'// append more modules here
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/login'});
@@ -41,4 +42,5 @@ function onDeviceReady() {
 // @codekit-append "pages/billing-details/billing-details.js"
 // @codekit-append "pages/place-order/place-order.js"
 // @codekit-append "pages/orders-history/orders-history.js"
+// @codekit-append "pages/profile/profile.js"
 // append more files here

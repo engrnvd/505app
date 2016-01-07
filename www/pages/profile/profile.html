@@ -1,0 +1,47 @@
+<div id="profile-page" class="user-page container" center-v v-font vh="2.5">
+
+    <div id="row logo-container">
+        <img id="logo" class="img-responsive img-circle" src="images/default-pp.png" alt="Logo"/>
+    </div>
+
+    <h2 v-font vh="6" id="title">Your Profile</h2>
+
+    <form novalidate name="updatePhoneForm" ng-submit="updatePhone()">
+        <div class="row input-row">
+            <div class="col-xs-4">P.A. #</div>
+            <div class="col-xs-8">{{user.PA_number}}</div>
+        </div>
+
+        <div class="row input-row">
+            <div class="col-xs-4">Name</div>
+            <div class="col-xs-8">{{user.name}}</div>
+        </div>
+
+        <div class="row input-row">
+            <div class="col-xs-4">Username</div>
+            <div class="col-xs-8">{{user.profile.username}}</div>
+        </div>
+
+        <div class="row input-row">
+            <div class="col-xs-4">Email</div>
+            <div class="col-xs-8">{{user.profile.email}}</div>
+        </div>
+
+        <div class="row input-row m-b-0">
+            <div class="col-xs-4">Phone</div>
+            <div class="col-xs-8"><input required ng-model="user.phone" placeholder="Your Phone"/></div>
+        </div>
+
+        <div v-font vh="2" class="row m-t-0">
+            <div class="col-xs-4"></div>
+            <div class="col-xs-8">Changes will reflect after you logout and login again.</div>
+        </div>
+
+        <div class="row input-row">
+            <div class="col-xs-12"><button type="submit" class="button" v-font vh="4" ng-disabled="!updatePhoneForm.$valid">Save</button></div>
+        </div>
+    </form>
+
+    <!--<pre>{{user|json}}</pre>-->
+</div>
+        <navbar></navbar>

@@ -4,7 +4,7 @@ angular.module('CustomDirectives', [])
     return {
         restrict: 'E',
         templateUrl: 'partials/navbar.html',
-        controller: ['$scope','$rootScope',function (scope) {
+        controller: ['$rootScope',function (scope) {
             scope.pages = SiteGlobals.pages;
             scope.user = SiteGlobals.user();
             scope.showSideMenu = function () {
