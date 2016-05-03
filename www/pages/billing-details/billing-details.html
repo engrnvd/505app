@@ -1,9 +1,7 @@
 <div id="billing-details" class="container page-with-nav" v-font vh="2.5">
     <h2>Billing Details</h2>
     <form id="month-selector">
-        <select ng-model="form.month" class="w33">
-            <option ng-repeat="month in form.monthsList" value="{{$index}}">{{month}}</option>
-        </select>
+        <select ng-model="form.month" class="w33" ng-options="index as month for (index,month) in form.monthsList"></select>
         <input type="number" ng-model="form.year" class="w33">
         <button class="w33" ng-click="loadRecords()">Load</button>
     </form>
@@ -12,27 +10,16 @@
     <table>
         <thead>
             <tr>
-                <th>Date</th>
-                <th>Lunch</th>
-                <th>Dinner</th>
-                <th>Other</th>
-                <th>Total</th>
+                <th>Sr</th>
+                <th>Details</th>
+                <th>Rs.</th>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="(date,record) in details.records">
-                <td>{{date}}</td>
-                <td>{{record['Lunch Record']}}</td>
-                <td>{{record['Dinner Record']}}</td>
-                <td>{{record['Extra Mess Record']}}</td>
-                <td>{{record['total']}}</td>
-            </tr>
-            <tr>
-                <th>Total</th>
-                <th>{{details.total['Lunch Record']}}</th>
-                <td>{{details.total['Dinner Record']}}</td>
-                <td>{{details.total['Extra Mess Record']}}</td>
-                <th>{{details.total['grandTotal']}} Rs.</th>
+            <tr ng-repeat="row in report">
+                <td>{{row.sr}}</td>
+                <td>{{row.label}}</td>
+                <td>{{row.value}}</td>
             </tr>
         </tbody>
     </table>

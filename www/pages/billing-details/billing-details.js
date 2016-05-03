@@ -25,7 +25,7 @@ angular.module('BillingDetails', ['ngRoute'])
         };
         Api.post("officer-profile/billing-details",data).then(function (response) {
             Api.checkAndHandleError(response);
-            scope.details = response.data.data;
+            scope.report = response.data.data;
             $.hideLoader();
         });
     };
